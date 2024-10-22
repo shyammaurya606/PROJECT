@@ -109,92 +109,92 @@ const SportsDetail = () => {
             </div>
             <div className="flex flex-col lg:flex-row">
                 {/* Left Section for News (hidden on small screens) */}
-                // <div className="hidden lg:flex lg:w-1/3 p-4 flex-col">
-                //     {/* Twitter Trending News Section */}
-                //     <h2 className="text-3xl font-bold mb-4 bg-white p-2 rounded-md">Trending on Twitter</h2>
-                //     <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4 ">
-                //         {loadingTwitter && <p className="text-center">Loading trending news...</p>}
-                //         {twitterError && <p className="text-center text-red-500">{twitterError}</p>}
-                //         {twitterNews.length > 0 ? (
-                //             <ul>
-                //                 {twitterNews.slice(0, 5).map((article, index) => (
-                //                     <li key={index} className="mb-4 flex items-start space-x-4">
-                //                         {article.urlToImage && (
-                //                             <img
-                //                                 src={article.urlToImage}
-                //                                 alt={article.title}
-                //                                 className="w-16 h-16 object-cover rounded-lg"
-                //                             />
-                //                         )}
-                //                         <div>
-                //                             <a
-                //                                 href={article.url}
-                //                                 target="_blank"
-                //                                 rel="noopener noreferrer"
-                //                                 className="text-blue-600 hover:underline font-semibold text-lg"
-                //                             >
-                //                                 {article.title}
-                //                             </a>
-                //                             <p className="text-gray-600 text-sm mt-1">
-                //                                 {article.source.name} - {new Date(article.publishedAt).toLocaleDateString('en-GB')}
-                //                             </p>
-                //                             <p className="text-gray-500 text-sm mt-2">
-                //                                 {article.description ? article.description.slice(0, 100) + "..." : ""}
-                //                             </p>
-                //                         </div>
-                //                     </li>
-                //                 ))}
-                //             </ul>
-                //         ) : (
-                //             !loadingTwitter && <p className="text-center text-gray-500">No trending news available</p>
-                //         )}
-                //     </div>
+                <div className="hidden lg:flex lg:w-1/3 p-4 flex-col">
+                    {/* Twitter Trending News Section */}
+                    <h2 className="text-3xl font-bold mb-4 bg-white p-2 rounded-md">Trending on Twitter</h2>
+                    <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4 ">
+                        {loadingTwitter && <p className="text-center">Loading trending news...</p>}
+                        {twitterError && <p className="text-center text-red-500">{twitterError}</p>}
+                        {twitterNews.length > 0 ? (
+                            <ul>
+                                {twitterNews.slice(0, 5).map((article, index) => (
+                                    <li key={index} className="mb-4 flex items-start space-x-4">
+                                        {article.urlToImage && (
+                                            <img
+                                                src={article.urlToImage}
+                                                alt={article.title}
+                                                className="w-16 h-16 object-cover rounded-lg"
+                                            />
+                                        )}
+                                        <div>
+                                            <a
+                                                href={article.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-blue-600 hover:underline font-semibold text-lg"
+                                            >
+                                                {article.title}
+                                            </a>
+                                            <p className="text-gray-600 text-sm mt-1">
+                                                {article.source.name} - {new Date(article.publishedAt).toLocaleDateString('en-GB')}
+                                            </p>
+                                            <p className="text-gray-500 text-sm mt-2">
+                                                {article.description ? article.description.slice(0, 100) + "..." : ""}
+                                            </p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            !loadingTwitter && <p className="text-center text-gray-500">No trending news available</p>
+                        )}
+                    </div>
 
-                //     {/* Sports News Section */}
-                //     <h2 className="text-3xl font-bold bg-white py-2 rounded-t-md w-full mb-3">Latest Sports News</h2>
-                //     <div className="bg-gray-100 p-4 rounded-lg shadow-md ">
-                //         {loading && <p className="text-center">Loading sports news...</p>}
-                //         {error && <p className="text-center text-red-500">{error}</p>}
-                //         <div className="max-h-[800px] overflow-y-auto">
-                //             {news.length > 0 ? (
-                //                 <ul className="space-y-4">
-                //                     {news.slice(0, 18).map((article, index) => (
-                //                         <li key={index} className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4">
-                //                             {article.urlToImage && (
-                //                                 <img
-                //                                     src={article.urlToImage}
-                //                                     alt={article.title}
-                //                                     className="w-24 h-24 object-cover rounded-lg"
-                //                                 />
-                //                             )}
-                //                             <div className="flex-1">
-                //                                 <a
-                //                                     href={article.url}
-                //                                     target="_blank"
-                //                                     rel="noopener noreferrer"
-                //                                     className="text-blue-600 hover:underline font-semibold text-lg"
-                //                                 >
-                //                                     {article.title}
-                //                                 </a>
-                //                                 <p className="text-gray-600 text-sm mt-1">
-                //                                     {article.source.name} -{" "}
-                //                                     {new Date(article.publishedAt).toLocaleDateString('en-GB')}
-                //                                 </p>
-                //                                 <p className="text-gray-500 text-sm mt-2">
-                //                                     {article.description
-                //                                         ? article.description.slice(0, 100) + "..."
-                //                                         : ""}
-                //                                 </p>
-                //                             </div>
-                //                         </li>
-                //                     ))}
-                //                 </ul>
-                //             ) : (
-                //                 !loading && <p className="text-center text-gray-500">No sports news available</p>
-                //             )}
-                //         </div>
-                //     </div>
-                // </div>
+                    {/* Sports News Section */}
+                    <h2 className="text-3xl font-bold bg-white py-2 rounded-t-md w-full mb-3">Latest Sports News</h2>
+                    <div className="bg-gray-100 p-4 rounded-lg shadow-md ">
+                        {loading && <p className="text-center">Loading sports news...</p>}
+                        {error && <p className="text-center text-red-500">{error}</p>}
+                        <div className="max-h-[800px] overflow-y-auto">
+                            {news.length > 0 ? (
+                                <ul className="space-y-4">
+                                    {news.slice(0, 18).map((article, index) => (
+                                        <li key={index} className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4">
+                                            {article.urlToImage && (
+                                                <img
+                                                    src={article.urlToImage}
+                                                    alt={article.title}
+                                                    className="w-24 h-24 object-cover rounded-lg"
+                                                />
+                                            )}
+                                            <div className="flex-1">
+                                                <a
+                                                    href={article.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-blue-600 hover:underline font-semibold text-lg"
+                                                >
+                                                    {article.title}
+                                                </a>
+                                                <p className="text-gray-600 text-sm mt-1">
+                                                    {article.source.name} -{" "}
+                                                    {new Date(article.publishedAt).toLocaleDateString('en-GB')}
+                                                </p>
+                                                <p className="text-gray-500 text-sm mt-2">
+                                                    {article.description
+                                                        ? article.description.slice(0, 100) + "..."
+                                                        : ""}
+                                                </p>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                !loading && <p className="text-center text-gray-500">No sports news available</p>
+                            )}
+                        </div>
+                    </div>
+                </div>
 
                 {/* Right Section for Sports Details (Available Channels) */}
                {/* Right Section for Sports Details (Available Channels) */}
